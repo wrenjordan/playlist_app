@@ -1,2 +1,2 @@
-# playlist_app
+# Spotify Playlist App
 Spotify Playlist Web App using React
