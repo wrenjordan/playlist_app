@@ -9,9 +9,10 @@ class App extends React.Component {
     super(props);
     this.state = { searchResults: [{ 'name':'Wunna', 'artist':'Gunna', 'album':'Wunna', 'id':'1' }],
                     playlistName: 'YSL',
-                    playlistTracks: [{ 'name':'Oh Okay', 'artist':'Gunna ft. Young Thug, Lil Baby', 'album':'Drip Season 3', 'id':'2' }]  
+                    playlistTracks: [{ 'name':'Oh Okay', 'artist':'Gunna ft. Young Thug, Lil Baby', 'album':'Drip Season 3', 'id':'2' }], 
                 };
     this.addTrack = this.addTrack.bind(this); 
+    this.removeTrack = this.removeTrack.bind(this);
   }
 
   addTrack(track) {
@@ -22,6 +23,12 @@ class App extends React.Component {
       this.setState({playlistTracks: this.state.playlistTracks});
     }
   }
+
+  removeTrack(track) {
+    this.state.playlistTracks.pop(track);
+    this.setState({playlistTracks: this.state.playlistTracks});
+  }
+
 
   render() {
     return (
@@ -34,7 +41,7 @@ class App extends React.Component {
             {/* Add a SearchResults component */}
             <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
             {/* Add a Playlist component */}
-            <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
+            <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onRemove={this.removeTrack} />
           </div>
         </div>
     </div>
