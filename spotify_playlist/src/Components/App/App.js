@@ -13,6 +13,9 @@ class App extends React.Component {
                 };
     this.addTrack = this.addTrack.bind(this); 
     this.removeTrack = this.removeTrack.bind(this);
+    this.updatePlaylistName = this.updatePlaylistName.bind(this);
+    this.savePlaylist = this.savePlaylist.bind(this);
+    this.search = this.search.bind(this);
   }
 
   addTrack(track) {
@@ -29,6 +32,17 @@ class App extends React.Component {
     this.setState({playlistTracks: this.state.playlistTracks});
   }
 
+  updatePlaylistName(name) {
+    this.setState({playlistName: name});
+  }
+
+  savePlaylist() {
+    let trackURIs = [];
+  }
+
+  search(searchTerm) {
+    console.log(searchTerm);
+  }
 
   render() {
     return (
@@ -36,12 +50,12 @@ class App extends React.Component {
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
           {/* Add a SearchBar component */}
-          <SearchBar />
+          <SearchBar onSearch={this.search} />
           <div className="App-playlist">
             {/* Add a SearchResults component */}
             <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
             {/* Add a Playlist component */}
-            <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onRemove={this.removeTrack} />
+            <Playlist onSave={this.savePlaylist} onNameChange={this.updatePlaylistName} playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onRemove={this.removeTrack} />
           </div>
         </div>
     </div>
