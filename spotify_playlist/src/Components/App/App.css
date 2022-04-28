@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -49,7 +49,7 @@ html {
 
 h1 {
   padding: .77rem 0;
-  background-color: #010c3f;
+  background-color: rgba(0, 0, 0, 1);
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 1.88rem;
@@ -57,7 +57,7 @@ h1 {
 }
 
 h1 .highlight {
-  color: #6c41ec;
+  color: #23d200;
 }
 
 h2 {
@@ -68,7 +68,7 @@ h2 {
 .App {
   height: 100%;
   padding: 0 17% 10% 17%;
-  background-image: url('./background_photo_desktop.jpeg');
+  background-image: url('./background_photo_desktop.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

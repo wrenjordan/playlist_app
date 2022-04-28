@@ -10,9 +10,9 @@ Spotify.getAccessToken();
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchResults: [{ 'name':'Wunna', 'artist':'Gunna', 'album':'Wunna', 'id':'1' }],
-                    playlistName: 'YSL',
-                    playlistTracks: [{ 'name':'Oh Okay', 'artist':'Gunna ft. Young Thug, Lil Baby', 'album':'Drip Season 3', 'id':'2' }], 
+    this.state = { searchResults: [],
+                    playlistName: 'Create Playlist Name Here',
+                    playlistTracks: [], 
                 };
     this.addTrack = this.addTrack.bind(this); 
     this.removeTrack = this.removeTrack.bind(this);
@@ -43,9 +43,10 @@ class App extends React.Component {
     const trackUris = this.state.playlistTracks.map(playlistTrack => playlistTrack.uri);
     Spotify.savePlaylist(this.state.playlistName, trackUris);
     this.setState({
-      searchResults: []
+      searchResults: [],
+      playlistTracks: []
     });
-    this.updatePlaylistName('New Playlist');
+    this.updatePlaylistName('Create Another Playlist');
   }
 
   search(searchTerm) {
@@ -58,7 +59,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Ja<span className="highlight">mmm</span>ing</h1>
+        <h1>Spotify <span className="highlight">Playlist </span>App</h1>
         <div className="App">
           {/* Add a SearchBar component */}
           <SearchBar onSearch={this.search} />
